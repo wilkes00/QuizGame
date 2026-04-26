@@ -1,5 +1,4 @@
 ﻿using Google.Protobuf.WellKnownTypes;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +9,11 @@ namespace QuizGame.Modelos
 {
     public class Pregunta
     {
-        [JsonProperty("id_pregunta")]
         public int idPregunta { get; set; }
-
-        [JsonProperty("texto_pregunta")]
+        public int idCategoria { get; set; }
         public string textoPregunta { get; set; }
+        public string tipoRespuesta { get; set; } // texto o imagen
 
-        [JsonProperty("tipo_respuesta")]
-        public string tipoRespuesta { get; set; }
-
-        [JsonProperty("respuestas")]
-        public List<Respuesta> respuestas { get; set; }
+        public List<Respuesta> respuestas { get; set; } = new List<Respuesta>();
     }
 }

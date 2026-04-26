@@ -19,8 +19,9 @@ namespace QuizGame.ClasesAdicionales
             //juego terminado
             if (JuegoGlobal.indicePreguntaActual >= JuegoGlobal.preguntas.Count)
             {
-             
-                //Guardar la partida y sus detalles en la base de datos
+                //  ===================================================
+                //  Guardar la partida y sus detalles en la base de datos
+                //  ====================================================
                 Partida partidaTerminada = new Partida();
                 partidaTerminada.idCategoria = JuegoGlobal.categoriaActual;
                 partidaTerminada.puntajeFinal = JuegoGlobal.puntaje;

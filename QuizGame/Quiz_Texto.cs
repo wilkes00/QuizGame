@@ -30,26 +30,27 @@ namespace QuizGame
         //Metodo para cargar las preguntas y respuestas a sus respectivos contenedores
         void mostrarPregunta()
         {
-            if (JuegoGlobal.preguntas == null || JuegoGlobal.preguntas.Count == 0)
+            //Arreglo vacio?
+            if (JuegoGlobal.preguntas.Count == 0)
                 return;
 
-            if (JuegoGlobal.indicePreguntaActual >= JuegoGlobal.preguntas.Count)
-                return;
-
+            //Obtener las preguntas de un indice
             Pregunta p = JuegoGlobal.preguntas[JuegoGlobal.indicePreguntaActual];
 
-            //Mostrar texto pregunta
+            //Mostrar la pregunta en pantalla
             pregunta.Pregunta = p.textoPregunta;
+            
+            //MessageBox.Show("Respuestas: " + p.respuestas.Count); Comprobacion de respuestas cargadas por pregunta
 
-            //Asignar respuestas a botones
-            if (p.respuestas != null && p.respuestas.Count >= 4)
+            //Aisiganar las respuestas a los botones
+            if (p.respuestas.Count >= 4)
             {
                 btn_respuesta1.Text = p.respuestas[0].textoRespuesta;
                 btn_respuesta2.Text = p.respuestas[1].textoRespuesta;
                 btn_respuesta3.Text = p.respuestas[2].textoRespuesta;
                 btn_respuesta4.Text = p.respuestas[3].textoRespuesta;
 
-                // Guardar respuesta en Tag
+                //Guarda informacion de la respuesta seleccionada
                 btn_respuesta1.Tag = p.respuestas[0];
                 btn_respuesta2.Tag = p.respuestas[1];
                 btn_respuesta3.Tag = p.respuestas[2];
@@ -64,11 +65,17 @@ namespace QuizGame
             lbEsperando.Visible = true;
             bloquearBotones();
             Button boton = (Button)sender;
+
+            //Informacion de la respuesta (texto_respuesta, es_correcta)
             Respuesta r = (Respuesta)boton.Tag;
 
-            if (r.esCorrecta)
-                JuegoGlobal.puntaje += 10;
+            //Puntaje 
+            if (r.esCorrecta) 
+                JuegoGlobal.puntaje+= 10;
 
+            //  =========================================================================
+            //  Guardar el detalle de esta pregunta para la insercion en la base de datos
+            //  =========================================================================
             PartidaDetalle detalle = new PartidaDetalle();
             detalle.idPregunta = JuegoGlobal.preguntas[JuegoGlobal.indicePreguntaActual].idPregunta;
             detalle.fueCorrecta = r.esCorrecta;
@@ -77,10 +84,9 @@ namespace QuizGame
            
         }
 
-
         private void Inicio_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btn_respuesta1_Click_1(object sender, EventArgs e)

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.fondo = new QuizGame.ControlesPersonalizados.FondoRadial();
             this.lbEsperando = new System.Windows.Forms.Label();
             this.lbContador = new System.Windows.Forms.Label();
@@ -59,7 +58,7 @@
             this.fondo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fondo.Location = new System.Drawing.Point(0, 0);
             this.fondo.Name = "fondo";
-            this.fondo.Size = new System.Drawing.Size(767, 461);
+            this.fondo.Size = new System.Drawing.Size(734, 461);
             this.fondo.TabIndex = 1;
             // 
             // lbEsperando
@@ -89,7 +88,7 @@
             // 
             this.imagen_respuesta4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.imagen_respuesta4.BorderRadius = 30;
-            this.imagen_respuesta4.Location = new System.Drawing.Point(549, 190);
+            this.imagen_respuesta4.Location = new System.Drawing.Point(533, 190);
             this.imagen_respuesta4.Name = "imagen_respuesta4";
             this.imagen_respuesta4.Size = new System.Drawing.Size(120, 142);
             this.imagen_respuesta4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -101,7 +100,7 @@
             // 
             this.imagen_respuesta3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.imagen_respuesta3.BorderRadius = 30;
-            this.imagen_respuesta3.Location = new System.Drawing.Point(398, 190);
+            this.imagen_respuesta3.Location = new System.Drawing.Point(382, 190);
             this.imagen_respuesta3.Name = "imagen_respuesta3";
             this.imagen_respuesta3.Size = new System.Drawing.Size(120, 142);
             this.imagen_respuesta3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -113,7 +112,7 @@
             // 
             this.imagen_respuesta2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.imagen_respuesta2.BorderRadius = 30;
-            this.imagen_respuesta2.Location = new System.Drawing.Point(238, 190);
+            this.imagen_respuesta2.Location = new System.Drawing.Point(222, 190);
             this.imagen_respuesta2.Name = "imagen_respuesta2";
             this.imagen_respuesta2.Size = new System.Drawing.Size(120, 142);
             this.imagen_respuesta2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -125,7 +124,7 @@
             // 
             this.imagen_respuesta1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.imagen_respuesta1.BorderRadius = 30;
-            this.imagen_respuesta1.Location = new System.Drawing.Point(84, 190);
+            this.imagen_respuesta1.Location = new System.Drawing.Point(68, 190);
             this.imagen_respuesta1.Name = "imagen_respuesta1";
             this.imagen_respuesta1.Size = new System.Drawing.Size(120, 142);
             this.imagen_respuesta1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -154,13 +153,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 461);
+            this.ClientSize = new System.Drawing.Size(734, 461);
             this.Controls.Add(this.fondo);
             this.Name = "Quiz_Imagen";
             this.Text = "Quiz_Imagen";
             this.Load += new System.EventHandler(this.Quiz_Imagen_Load);
             this.fondo.ResumeLayout(false);
-            this.fondo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagen_respuesta4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagen_respuesta3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagen_respuesta2)).EndInit();

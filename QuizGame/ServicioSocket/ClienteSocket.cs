@@ -28,8 +28,7 @@ namespace QuizGame.ServicioSocket
                 string ipServidor = BuscarServidor();
 
                 if (ipServidor == null)
-                    //editar con la ip del servidor manualmente
-                    ipServidor = "";
+                    return null;
 
                 cliente = new TcpClient();
                 cliente.Connect(ipServidor, 5000);

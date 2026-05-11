@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.fondo = new QuizGame.ControlesPersonalizados.FondoRadial();
+            this.lbEsperando = new System.Windows.Forms.Label();
+            this.lbContador = new System.Windows.Forms.Label();
             this.imagen_respuesta4 = new QuizGame.ControlesPersonalizados.PictureBoxRedondeado();
             this.imagen_respuesta3 = new QuizGame.ControlesPersonalizados.PictureBoxRedondeado();
             this.imagen_respuesta2 = new QuizGame.ControlesPersonalizados.PictureBoxRedondeado();
             this.imagen_respuesta1 = new QuizGame.ControlesPersonalizados.PictureBoxRedondeado();
             this.pregunta = new QuizGame.ControlesPersonalizados.PreguntaControl();
+            this.TiempoEspera = new System.Windows.Forms.Timer(this.components);
             this.fondo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagen_respuesta4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagen_respuesta3)).BeginInit();
@@ -45,6 +49,8 @@
             // 
             this.fondo.BorderColor = System.Drawing.Color.MediumPurple;
             this.fondo.CenterColor = System.Drawing.Color.PaleTurquoise;
+            this.fondo.Controls.Add(this.lbEsperando);
+            this.fondo.Controls.Add(this.lbContador);
             this.fondo.Controls.Add(this.imagen_respuesta4);
             this.fondo.Controls.Add(this.imagen_respuesta3);
             this.fondo.Controls.Add(this.imagen_respuesta2);
@@ -53,14 +59,37 @@
             this.fondo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fondo.Location = new System.Drawing.Point(0, 0);
             this.fondo.Name = "fondo";
-            this.fondo.Size = new System.Drawing.Size(734, 461);
+            this.fondo.Size = new System.Drawing.Size(767, 461);
             this.fondo.TabIndex = 1;
+            // 
+            // lbEsperando
+            // 
+            this.lbEsperando.AutoSize = true;
+            this.lbEsperando.BackColor = System.Drawing.Color.Transparent;
+            this.lbEsperando.Font = new System.Drawing.Font("Arial Rounded MT Bold", 30F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEsperando.Location = new System.Drawing.Point(38, 365);
+            this.lbEsperando.Name = "lbEsperando";
+            this.lbEsperando.Size = new System.Drawing.Size(681, 46);
+            this.lbEsperando.TabIndex = 15;
+            this.lbEsperando.Text = "Esperando a los demas jugadores";
+            this.lbEsperando.Visible = false;
+            // 
+            // lbContador
+            // 
+            this.lbContador.AutoSize = true;
+            this.lbContador.BackColor = System.Drawing.Color.Transparent;
+            this.lbContador.Font = new System.Drawing.Font("Arial Rounded MT Bold", 30F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbContador.Location = new System.Drawing.Point(675, 18);
+            this.lbContador.Name = "lbContador";
+            this.lbContador.Size = new System.Drawing.Size(68, 46);
+            this.lbContador.TabIndex = 14;
+            this.lbContador.Text = "10";
             // 
             // imagen_respuesta4
             // 
             this.imagen_respuesta4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.imagen_respuesta4.BorderRadius = 30;
-            this.imagen_respuesta4.Location = new System.Drawing.Point(533, 190);
+            this.imagen_respuesta4.Location = new System.Drawing.Point(549, 190);
             this.imagen_respuesta4.Name = "imagen_respuesta4";
             this.imagen_respuesta4.Size = new System.Drawing.Size(120, 142);
             this.imagen_respuesta4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -72,7 +101,7 @@
             // 
             this.imagen_respuesta3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.imagen_respuesta3.BorderRadius = 30;
-            this.imagen_respuesta3.Location = new System.Drawing.Point(382, 190);
+            this.imagen_respuesta3.Location = new System.Drawing.Point(398, 190);
             this.imagen_respuesta3.Name = "imagen_respuesta3";
             this.imagen_respuesta3.Size = new System.Drawing.Size(120, 142);
             this.imagen_respuesta3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -84,7 +113,7 @@
             // 
             this.imagen_respuesta2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.imagen_respuesta2.BorderRadius = 30;
-            this.imagen_respuesta2.Location = new System.Drawing.Point(222, 190);
+            this.imagen_respuesta2.Location = new System.Drawing.Point(238, 190);
             this.imagen_respuesta2.Name = "imagen_respuesta2";
             this.imagen_respuesta2.Size = new System.Drawing.Size(120, 142);
             this.imagen_respuesta2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -96,7 +125,7 @@
             // 
             this.imagen_respuesta1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.imagen_respuesta1.BorderRadius = 30;
-            this.imagen_respuesta1.Location = new System.Drawing.Point(68, 190);
+            this.imagen_respuesta1.Location = new System.Drawing.Point(84, 190);
             this.imagen_respuesta1.Name = "imagen_respuesta1";
             this.imagen_respuesta1.Size = new System.Drawing.Size(120, 142);
             this.imagen_respuesta1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -110,22 +139,28 @@
             this.pregunta.BorderRadius = 30;
             this.pregunta.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold);
             this.pregunta.ForeColor = System.Drawing.Color.Black;
-            this.pregunta.Location = new System.Drawing.Point(12, 55);
+            this.pregunta.Location = new System.Drawing.Point(84, 55);
             this.pregunta.Name = "pregunta";
             this.pregunta.Pregunta = "";
-            this.pregunta.Size = new System.Drawing.Size(710, 80);
+            this.pregunta.Size = new System.Drawing.Size(585, 80);
             this.pregunta.TabIndex = 5;
+            // 
+            // TiempoEspera
+            // 
+            this.TiempoEspera.Interval = 1000;
+            this.TiempoEspera.Tick += new System.EventHandler(this.TiempoEspera_Tick);
             // 
             // Quiz_Imagen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 461);
+            this.ClientSize = new System.Drawing.Size(767, 461);
             this.Controls.Add(this.fondo);
             this.Name = "Quiz_Imagen";
             this.Text = "Quiz_Imagen";
             this.Load += new System.EventHandler(this.Quiz_Imagen_Load);
             this.fondo.ResumeLayout(false);
+            this.fondo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagen_respuesta4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagen_respuesta3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagen_respuesta2)).EndInit();
@@ -142,5 +177,8 @@
         private ControlesPersonalizados.PictureBoxRedondeado imagen_respuesta4;
         private ControlesPersonalizados.PictureBoxRedondeado imagen_respuesta3;
         private ControlesPersonalizados.PictureBoxRedondeado imagen_respuesta2;
+        private System.Windows.Forms.Label lbContador;
+        private System.Windows.Forms.Timer TiempoEspera;
+        private System.Windows.Forms.Label lbEsperando;
     }
 }

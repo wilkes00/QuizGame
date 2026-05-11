@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace QuizGame.ClasesAdicionales
+{
+    public class UsuarioGlobal
+    {
+        public static string NombreUsuario = "";
+        public static int idUsuario = 0;
+        public static bool EsHost= false;
+    }
+}
